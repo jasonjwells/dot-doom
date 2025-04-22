@@ -49,3 +49,7 @@
 ;; (unpin! t)
 
 (package! evil-tutor)
+
+(package! obsidian)
+
+(package! hledger-mode)

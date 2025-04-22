@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Mononoki Nerd Font" :size 18 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "Mononoki Nerd Font" :size 18))
+;;(setq doom-font (font-spec :family "Mononoki Nerd Font" :size 18 :weight 'semi-light)
+;;     doom-variable-pitch-font (font-spec :family "Mononoki Nerd Font" :size 18))
 
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
@@ -35,7 +35,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-solarized-light)
+(setq doom-theme 'doom-solarized-dark)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -43,7 +43,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "/home/shinobi/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -77,3 +77,46 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(require 'obsidian)
+;; Location of obsidian vault
+(setopt obsidian-directory "/home/shinobi/org")
+;; Default location for new notes from `obsidian-capture'
+(setopt obsidian-inbox-directory "Inbox")
+;; Useful if you're going to be using wiki links
+(setopt markdown-enable-wiki-links t)
+
+;; These bindings are only suggestions; it's okay to use other bindings
+;; Create note
+(define-key obsidian-mode-map (kbd "C-c C-n") 'obsidian-capture)
+;; If you prefer you can use `obsidian-insert-wikilink'
+(define-key obsidian-mode-map (kbd "C-c C-l") 'obsidian-insert-link)
+;; Open file pointed to by link at point
+(define-key obsidian-mode-map (kbd "C-c C-o") 'obsidian-follow-link-at-point)
+;; Open a note note from vault
+(define-key obsidian-mode-map (kbd "C-c C-p") 'obsidian-jump)
+;; Follow a backlink for the current file
+(define-key obsidian-mode-map (kbd "C-c C-b") 'obsidian-backlink-jump)
+
+;; Activate obsidian mode and backlinks mode
+(global-obsidian-mode t)
+(obsidian-backlinks-mode t)
+
+
+;;; Basic configuration
+(require 'hledger-mode)
+
+;; To open files with .journal extension in hledger-mode
+(add-to-list 'auto-mode-alist '("\\.journal\\'" . hledger-mode))
+
+;; Provide the path to you journal file.
+;; The default location is too opinionated.
+(setq hledger-jfile "/home/shinobi/Repos/hledger/hledger.journal")
+
+;; For easily adjusting dates.
+(define-key hledger-mode-map (kbd "<kp-add>") 'hledger-increment-entry-date)
+(define-key hledger-mode-map (kbd "<kp-subtract>") 'hledger-decrement-entry-date)
+
+;; Personal Accounting
+(global-set-key (kbd "C-c e") 'hledger-jentry)
+(global-set-key (kbd "C-c j") 'hledger-run-command)
