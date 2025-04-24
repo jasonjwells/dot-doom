@@ -53,3 +53,5 @@
 (package! obsidian)
 
 (package! hledger-mode)
+
+(package! selectric-mode)

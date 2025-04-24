@@ -78,7 +78,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(require 'obsidian)
+;; (require 'obsidian)
 ;; Location of obsidian vault
 (setopt obsidian-directory "/home/shinobi/org")
 ;; Default location for new notes from `obsidian-capture'
@@ -88,19 +88,19 @@
 
 ;; These bindings are only suggestions; it's okay to use other bindings
 ;; Create note
-(define-key obsidian-mode-map (kbd "C-c C-n") 'obsidian-capture)
+;; (define-key obsidian-mode-map (kbd "C-c C-n") 'obsidian-capture)
 ;; If you prefer you can use `obsidian-insert-wikilink'
-(define-key obsidian-mode-map (kbd "C-c C-l") 'obsidian-insert-link)
+;; (define-key obsidian-mode-map (kbd "C-c C-l") 'obsidian-insert-link)
 ;; Open file pointed to by link at point
-(define-key obsidian-mode-map (kbd "C-c C-o") 'obsidian-follow-link-at-point)
+;; (define-key obsidian-mode-map (kbd "C-c C-o") 'obsidian-follow-link-at-point)
 ;; Open a note note from vault
-(define-key obsidian-mode-map (kbd "C-c C-p") 'obsidian-jump)
+;; (define-key obsidian-mode-map (kbd "C-c C-p") 'obsidian-jump)
 ;; Follow a backlink for the current file
-(define-key obsidian-mode-map (kbd "C-c C-b") 'obsidian-backlink-jump)
+;; (define-key obsidian-mode-map (kbd "C-c C-b") 'obsidian-backlink-jump)
 
 ;; Activate obsidian mode and backlinks mode
-(global-obsidian-mode t)
-(obsidian-backlinks-mode t)
+;; (global-obsidian-mode t)
+;; (obsidian-backlinks-mode t)
 
 
 ;;; Basic configuration
