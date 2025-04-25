@@ -120,3 +120,8 @@
 ;; Personal Accounting
 (global-set-key (kbd "C-c e") 'hledger-jentry)
 (global-set-key (kbd "C-c j") 'hledger-run-command)
+
+;; Deft mode for search
+(setq deft-extensions '("md" "org"))
+(setq deft-directory "~/org/")
+(setq deft-recursive t)
