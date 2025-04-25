@@ -26,10 +26,10 @@
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
-       ;;  vertico           ; the search engine of the future
+       vertico           ; the search engine of the future
 
        :ui
-       deft              ; notational velocity for Emacs
+       ;;  deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        ;;doom-quit         ; DOOM quit-message prompts when you quit Emacs
@@ -44,7 +44,7 @@
        ophints           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
        smooth-scroll     ; So smooth you won't believe it's not butter
-       ;; tabs              ; a tab bar for Emacs
+       tabs              ; a tab bar for Emacs
        treemacs          ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
        (vc-gutter +pretty) ; vcs diff in the fringe
@@ -60,7 +60,7 @@
        (format +onsave)  ; automated prettiness
        ;;god               ; run Emacs commands without modifier keys
        ;;lispy             ; vim for lisp, for people who don't like vim
-       multiple-cursors  ; editing in many places at once
+       ;; multiple-cursors  ; editing in many places at once
        ;;objed             ; text object editing for the innocent
        ;;parinfer          ; turn lisp into python, sort of
        ;;rotate-text       ; cycle region at point between text candidates
@@ -83,7 +83,7 @@
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       (spell +flyspell) ; tasing you for misspelling mispelling
+       ;; (spell +flyspell) ; tasing you for misspelling mispelling
        grammar           ; tasing grammar mistake every you make
 
        :tools
@@ -134,7 +134,7 @@
        ;;fsharp            ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
-       (go +lsp)         ; the hipster dialect
+       ;; (go +lsp)         ; the hipster dialect
        ;;(graphql +lsp)    ; Give queries a REST
        ;;(haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
@@ -152,7 +152,7 @@
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       (org +brain +dragndrop +gnuplot +hugo +journal +pandoc +pomodoro +present +pretty +roam2)            ; organize your plain life in plain text
+       (org +brain +dragndrop +hugo +journal +pandoc +pomodoro +present +pretty +roam2)            ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;  graphviz          ; diagrams for confusing yourself even more
@@ -167,7 +167,7 @@
        ;;(rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
-       sh                ; she sells {ba,z,fi}sh shells on the C xor
+       (sh +fish)                ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?

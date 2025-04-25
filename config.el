@@ -35,7 +35,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-solarized-dark)
+(setq doom-theme 'doom-zenburn)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -80,11 +80,11 @@
 
 ;; (require 'obsidian)
 ;; Location of obsidian vault
-(setopt obsidian-directory "/home/shinobi/org")
+;;(setopt obsidian-directory "/home/shinobi/org")
 ;; Default location for new notes from `obsidian-capture'
-(setopt obsidian-inbox-directory "Inbox")
+;; (setopt obsidian-inbox-directory "Inbox")
 ;; Useful if you're going to be using wiki links
-(setopt markdown-enable-wiki-links t)
+;; (setopt markdown-enable-wiki-links t)
 
 ;; These bindings are only suggestions; it's okay to use other bindings
 ;; Create note
@@ -102,26 +102,17 @@
 ;; (global-obsidian-mode t)
 ;; (obsidian-backlinks-mode t)
 
+(after! vterm-mode
+  (setq-default vterm-shell "/bin/fish")
+  (setq-default explicit-shell-file-name "~/config/fish/config.fish"))
 
-;;; Basic configuration
-(require 'hledger-mode)
+
 
 ;; To open files with .journal extension in hledger-mode
-(add-to-list 'auto-mode-alist '("\\.journal\\'" . hledger-mode))
+
 
 ;; Provide the path to you journal file.
 ;; The default location is too opinionated.
-(setq hledger-jfile "/home/shinobi/Repos/hledger/hledger.journal")
 
-;; For easily adjusting dates.
-(define-key hledger-mode-map (kbd "<kp-add>") 'hledger-increment-entry-date)
-(define-key hledger-mode-map (kbd "<kp-subtract>") 'hledger-decrement-entry-date)
-
-;; Personal Accounting
-(global-set-key (kbd "C-c e") 'hledger-jentry)
-(global-set-key (kbd "C-c j") 'hledger-run-command)
-
-;; Deft mode for search
-(setq deft-extensions '("md" "org"))
-(setq deft-directory "~/org/")
-(setq deft-recursive t)
+(use-package! selectric-mode
+  )

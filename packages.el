@@ -50,14 +50,6 @@
 
 (package! evil-tutor)
 
-(package! obsidian)
-
-(package! async)
-
-(package! htmlize)
-
-(package! centaur-tabs)
-
-(package! hledger-mode)
+;; (package! obsidian)
 
 (package! selectric-mode)
