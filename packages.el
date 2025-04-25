@@ -52,6 +52,12 @@
 
 (package! obsidian)
 
+(package! async)
+
+(package! htmlize)
+
+(package! centaur-tabs)
+
 (package! hledger-mode)
 
 (package! selectric-mode)
