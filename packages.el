@@ -53,3 +53,5 @@
 ;; (package! obsidian)
 
 (package! selectric-mode)
+
+(package! denote)
