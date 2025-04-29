@@ -60,3 +60,4 @@
 (package! denote-sequence)
 (package! denote-journal)
 (package! denote-markdown)
+(package! modus-themes)
