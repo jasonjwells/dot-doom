@@ -8,25 +8,25 @@
 2024-${1:Month}-${2:Day} event "Sienna Start" "${3:Name}"
 
 2024-${1}-${2} * "Sienna delivery" #turo
-  Expenses:Turo:Host-Sienna-KM 64    GKM
+  Expenses:Turo:Host-Sienna-KM            32 GKM
   Liabilities:Sienna-KM
 
 2024-${1}-${2} * "Sienna driver pickup" #turo
-  Expenses:Turo:Host-Leaf-KM 64    EKM
+  Expenses:Turo:Host-Leaf-KM              64 EKM
   Liabilities:Leaf-KM
 
 2024-${4:Month}-${5:Day} event "Sienna Stop" "${3}" #turo
 
 
 2024-${4}-${5} * "Sienna pick-up" #turo
-  Expenses:Turo:Host-Sienna-KM 32    GKM
+  Expenses:Turo:Host-Sienna-KM           32 GKM
   Liabilities:Sienna-KM
 
 2024-${4}-${5} * "Sienna driver pickup" #turo
-  Expenses:Turo:Host-Leaf-KM 64    EKM
+  Expenses:Turo:Host-Leaf-KM              64 EKM
   Liabilities:Leaf-KM
 
 2024-${4}-${5} * "Guest Van KMs" #turo
-  Expenses:Turo:Guest-KM ${6:GKM}  GKM
+  Expenses:Turo:Guest-Sienna-KM         ${6:GKM} GKM
 
 $0
