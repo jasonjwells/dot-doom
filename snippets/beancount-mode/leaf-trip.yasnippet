@@ -8,23 +8,23 @@
 2024-${1:Month}-${2:Day} event "Leaf Start" "${3:Name}"
 
 2024-${1}-${2} * "Leaf delivery" #turo
-  Expenses:Turo:Host-Leaf-KM 32    GKM
-  Liabilities:Sienna-KM
-
-2024-${1}-${2} * "Leaf driver pickup" #turo
-  Expenses:Turo:Rogue-KM 64    EKM
+  Expenses:Turo:Host-Leaf-KM 32    EKM
   Liabilities:Leaf-KM
 
-2024-${4:Month}-${5:Day} event "Leaf Stop" "${3}" #turo
+2024-${1}-${2} * "Leaf driver pickup" #turo
+  Expenses:Turo:Rogue-KM 64    GKM
+  Liabilities:Rogue-KM
+
+2024-${4:Month}-${5:Day} event "Leaf Stop" "${3}"
 
 
 2024-${4}-${5} * "Leaf pick-up" #turo
-  Expenses:Turo:Host-Sienna-KM 32    EKM
-  Liabilities:Sienna-KM
+  Expenses:Turo:Host-Leaf-KM 32    EKM
+  Liabilities:Leaf-KM
 
 2024-${4}-${5} * "Leaf driver pickup" #turo
   Expenses:Turo:Rogue-KM 64    GKM
-  Liabilities:Leaf-KM
+  Liabilities:Rogue-KM
 
 2024-${4}-${5} * "Guest Leaf KMs" #turo
   Expenses:Turo:Guest-Leaf-KM ${6:EKM}  EKM
