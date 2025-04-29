@@ -55,3 +55,8 @@
 (package! selectric-mode)
 
 (package! denote)
+(package! denote-silo)
+(package! denote-org)
+(package! denote-sequence)
+(package! denote-journal)
+(package! denote-markdown)

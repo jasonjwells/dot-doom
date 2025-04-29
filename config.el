@@ -43,7 +43,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "/home/shinobi/org/")
+(setq org-directory "/home/shinobi/Documents/notes/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -101,6 +101,8 @@
 ;; Activate obsidian mode and backlinks mode
 ;; (global-obsidian-mode t)
 ;; (obsidian-backlinks-mode t)
+(setq shell-file-name (executable-find
+                       "bash"))
 
 (after! vterm-mode
   (setq-default vterm-shell "/bin/fish")
@@ -160,7 +162,7 @@
 
     :config
     ;; Remember to check the doc string of each of those variables.
-    (setq denote-directory (expand-file-name "~/org/"))
+    (setq denote-directory (expand-file-name "~/Documents/notes/"))
     (setq denote-save-buffers nil)
     (setq denote-known-keywords '("emacs" "km" "business" "philosophy"))
     (setq denote-infer-keywords t)
@@ -175,4 +177,52 @@
 
     ;; Automatically rename Denote buffers using the `denote-rename-buffer-format'.
     (denote-rename-buffer-mode 1))
+  )
+
+(after! denote-journal
+  (use-package denote-journal
+    :ensure t
+    ;; Bind those to some key for your convenience.
+    :commands ( denote-journal-new-entry
+                denote-journal-new-or-existing-entry
+                denote-journal-link-or-create-entry )
+    :hook (calendar-mode . denote-journal-calendar-mode)
+    :config
+    ;; Use the "journal" subdirectory of the `denote-directory'.  Set this
+    ;; to nil to use the `denote-directory' instead.
+    (setq denote-journal-directory
+          (expand-file-name "journal" denote-directory))
+    ;; Default keyword for new journal entries. It can also be a list of
+    ;; strings.
+    (setq denote-journal-keyword "journal")
+    ;; Read the doc string of `denote-journal-title-format'.
+    (setq denote-journal-title-format 'day-date-month-year))
+
+  )
+
+(after! denote-sequence
+  (use-package denote-sequence
+    :ensure t
+    :bind
+    ( :map global-map
+           ;; Here we make "C-c n s" a prefix for all "[n]otes with [s]equence".
+           ;; This is just for demonstration purposes: use the key bindings
+           ;; that work for you.  Also check the commands:
+           ;;
+           ;; - `denote-sequence-new-parent'
+           ;; - `denote-sequence-new-sibling'
+           ;; - `denote-sequence-new-child'
+           ;; - `denote-sequence-new-child-of-current'
+           ;; - `denote-sequence-new-sibling-of-current'
+           ("C-c n s s" . denote-sequence)
+           ("C-c n s f" . denote-sequence-find)
+           ("C-c n s l" . denote-sequence-link)
+           ("C-c n s d" . denote-sequence-dired)
+           ("C-c n s r" . denote-sequence-reparent)
+           ("C-c n s c" . denote-sequence-convert))
+    :config
+    ;; The default sequence scheme is `numeric'.
+    (setq denote-sequence-scheme 'alphanumeric))
+
+
   )
