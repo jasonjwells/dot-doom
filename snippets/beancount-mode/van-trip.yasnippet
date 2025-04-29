@@ -1,0 +1,26 @@
+# -*- mode: snippet -*-
+# name:van-trip
+# key:vt
+# --
+ties:Leaf-KM
+
+2024-${1:Month)-Day event "Sienna Start" "Name"
+
+2024-{Month}-{Day} * "Sienna delivery" #turo
+Expenses:Turo:Host-Sienna-KM 64    GKM
+Liabilities:Sienna-KM
+
+2024-{Month}-{Day} * "Sienna driver pickup" #turo
+Expenses:Turo:Host-Leaf-KM 64    EKM
+Liabilities:Leaf-KM
+
+2024-{}-{} event "Sienna Stop" "Name" #turo
+
+
+2024-{}-{} * "Sienna pick-up" #turo
+Expenses:Turo:Host-Sienna-KM 32    GKM
+Liabilities:Sienna-KM
+
+2024-{}-{} * "Sienna driver pickup" #turo
+Expenses:Turo:Host-Leaf-KM 64    EKM
+Liabilities:Leaf-KM
